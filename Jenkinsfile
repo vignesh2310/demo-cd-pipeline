@@ -49,7 +49,7 @@ pipeline {
         stage('build image from dokcer') {
             steps {
                 script {
-                    dockerImage = docker.build(ecruri + ':$BUILD_NUMBER', .)
+                    dockerImage = docker.build(ecruri + ":$BUILD_NUMBER", .)
                 }
             }
         }
@@ -58,7 +58,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry(ecrurl, registerycred) {
-                        dockerImage.push('$BUILD_NUMBER')
+                        dockerImage.push("$BUILD_NUMBER")
                         dockerImage.push('latest')
                     }
                 }
