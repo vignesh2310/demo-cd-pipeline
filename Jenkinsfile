@@ -49,7 +49,7 @@ pipeline {
         stage('build image from dokcer') {
             steps {
                 script {
-                    dockerImage = docker.build(ecruri + ":$BUILD_NUMBER", .)
+                    dockerImage = docker.build(ecruri + ":$BUILD_NUMBER", ".")
                 }
             }
         }
