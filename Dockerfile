@@ -1,6 +1,6 @@
 FROM openjdk:11 AS BUILG_IMAGE
 RUN apt update && apt install maven -y
-RUN git clone -b https://github.com/vignesh2310/demo-cd-pipeline.git
+RUN git clone -b master https://github.com/vignesh2310/demo-cd-pipeline.git
 RUN cd cdproject-pipeline && mvn install
 
 FROM tomcat:latest
