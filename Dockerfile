@@ -1,7 +1,7 @@
 FROM openjdk:11 AS BUILD_IMAGE
 RUN apt update && apt install maven -y
 RUN git clone -b master https://github.com/vignesh2310/demo-cd-pipeline.git
-RUN cd demo-cd-pipeline && mvn install
+RUN mvn install
 
 FROM tomcat:latest
 RUN rm -rf /usr/locat/tomcat/webapps/*
