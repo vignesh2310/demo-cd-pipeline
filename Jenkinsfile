@@ -13,8 +13,8 @@ pipeline {
 
     stages {
         stage ('fetch code') {
-            steps {
-                git branch: 'ci-jenkins', credentialsId: 'git-cred', url: 'https://github.com/vignesh2310/ci-jenkins.git'
+            steps { // change branch and url
+                git branch: 'master', credentialsId: 'git-cred', url: 'https://github.com/vignesh2310/demo-cd-pipeline.git'
             }
         }
 
@@ -41,7 +41,7 @@ pipeline {
         stage('deploy to tomcat') {
             steps {
                 sshagent(['tomcat-ssh-deploy']) {
-                sh 'scp -o StrictHostKeyChecking=no target/demo-v2.war ubuntu@3.145.100.132:/opt/tomcat/webapps'
+                sh 'scp -o StrictHostKeyChecking=no target/demo-v2.war ubuntu@18.222.59.140:/opt/tomcat/webapps'
                 }   // ubuntu user have access to tomcat files. (i.e)chown ubuntu:ubuntu under tomcat directory.
             } 
         }
