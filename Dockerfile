@@ -1,4 +1,4 @@
-FROM openjdk:11 AS BUILG_IMAGE
+FROM openjdk:11 AS BUILD_IMAGE
 RUN apt update && apt install maven -y
 RUN git clone -b master https://github.com/vignesh2310/demo-cd-pipeline.git
 RUN cd demo-cd-pipeline && mvn install
