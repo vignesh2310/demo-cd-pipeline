@@ -5,6 +5,6 @@ RUN cd cdproject-pipeline && mvn install
 
 FROM tomcat:latest
 RUN rm -rf /usr/locat/tomcat/webapps/*
-COPY --from-BUILD_IMAGE cdproject-pipeline/target/demo-v2.war /usr/local/tomcat/webapps/deploy.war
+COPY --from=BUILD_IMAGE cdproject-pipeline/target/demo-v2.war /usr/local/tomcat/webapps/deploy.war
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
